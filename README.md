@@ -25,12 +25,23 @@ MyScalismoProject/
 ├── *.scala                 # Scala source files for PCA analysis
 ├── *.py                    # Python utilities for mesh processing
 ├── build.sbt               # SBT build configuration
-├── data/                   # Data files (excluded from git due to size)
-│   ├── AlignedModels/      # Aligned anatomical models (CSV format)
-│   ├── ArotaModels/        # Original STL models
-│   ├── Final/              # Generated PLY point clouds
-│   └── Evaluate_output/    # Analysis results and evaluations
+├── data/                   # Data files and analysis results
+│   ├── AlignedModels/      # ✅ Aligned anatomical models (CSV format) - 88 files
+│   ├── ArotaModels/        # 🔍 Original STL models (7-15MB each) - 88 files
+│   ├── Final/              # 🔍 Generated PLY point clouds - anatomical_*/
+│   │   ├── anatomical_*/   # Individual model directories
+│   │   │   ├── *_original.ply
+│   │   │   ├── *_PC1_minus2sigma.ply
+│   │   │   ├── *_PC1_plus2sigma.ply
+│   │   │   └── ... (PC2, PC3 variants)
+│   └── Evaluate_output/    # ✅ Analysis results and evaluations
+│       ├── evaluation_generalization_loormse.csv
+│       ├── PCA_eigenvalues_analysis.txt
+│       └── specificity_out/    # K1-K10 specificity analysis
 └── README.md               # This file
+
+✅ = Included in repository
+🔍 = Large files, contact for dataset access
 ```
 
 ## Technologies Used
@@ -97,11 +108,27 @@ python plytostlsmooth.py --ply_dir "data/Final" --stl_dir "data/ArotaModels" --o
 - SciPy (optional, for optimized nearest neighbor)
 - Python 3.x
 
+## Dataset Information
+
+### Included Data ✅
+- **88 Aligned Models**: CSV format anatomical models ready for PCA analysis
+- **Evaluation Results**: Complete analysis outputs including RMSE, specificity metrics
+- **PCA Analysis**: Eigenvalue analysis and component summaries
+
+### Large Dataset Access 🔍
+The complete dataset includes:
+- **88 STL Models**: Original anatomical aorta models (7-15MB each, ~800MB total)
+- **616 PLY Files**: Generated point clouds with PC variations (±2σ for PC1-3)
+- **Additional Outputs**: Generated meshes and intermediate processing files
+
+*For access to the complete dataset, please contact the repository owner.*
+
 ## Notes
 
-- Large data files (STL, PLY, CSV) are excluded from git due to size limitations
-- Build artifacts and IDE files are also excluded via .gitignore
-- Original functionality is preserved while improving code readability
+- Repository optimized for code sharing and reproducibility
+- Large binary files managed separately to maintain reasonable clone size
+- All analysis can be reproduced with the provided aligned CSV data
+- Build artifacts and IDE files are excluded via .gitignore
 
 ## Academic Context
 
