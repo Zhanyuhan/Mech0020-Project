@@ -1,0 +1,35 @@
+# Scala build artifacts
+target/
+.scala-build/
+.bsp/
+.metals/
+.vscode/
+project/target/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.idea/
+*.iml
+
+# Large data files (consider using Git LFS)
+*.stl
+*.ply
+*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Temporary files
+*~
+*.tmp
+*.bak
+*.swp
