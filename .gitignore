@@ -16,10 +16,15 @@ __pycache__/
 .idea/
 *.iml
 
-# Large data files (consider using Git LFS)
-*.stl
-*.ply
-*.csv
+# Large binary data files (consider using Git LFS for very large files)
+# Allow small data files and analysis results
+# *.stl
+# *.ply  
+# *.csv
+
+# Exclude only very large model files if needed
+# data/ArotaModels/*.stl
+# data/Final/*/*.ply
 
 # OS files
 .DS_Store
